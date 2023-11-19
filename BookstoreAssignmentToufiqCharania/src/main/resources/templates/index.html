@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oleo+Script&family=Poppins:wght@300;400;500;600&display=swap">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a th:href="@{/secure}">Login</a></li>
+            <li><a th:href="@{/register}">Register</a></li>
+            <li><a th:href="@{/viewCart}">Cart</a></li>
+            <li><a th:href="@{/editBooks}">Edit Books</a></li>
+        </ul>
+    </nav>
+    <h1>Welcome to the BookStore!</h1>
+    <h2>Featured Books</h2>
+    <div class="container" th:if="${bookList != null and bookList != ' '}">
+        <div th:each="s : ${bookList}" class="book-container" th:onclick="@{/viewBook/}+${s.isbn}">
+            <img th:src="@{images/{isbn}.jpg(isbn=${s.isbn})}" alt="Book Cover Photo" class="book-image" />
+            <div class="book-details">
+                <p><a th:href="@{/viewBook/}+${s.isbn}" th:text="${s.title}">Title</a></p>
+                <p><span th:text="${s.author}">Author</span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

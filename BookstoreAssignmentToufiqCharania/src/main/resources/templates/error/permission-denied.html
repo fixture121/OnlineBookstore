@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/styles.css" />
+  <title>Permission Denied</title>
+</head>
+<body>
+<h1>Permission Denied</h1>
+<h3>Looks like you're in the wrong place :(</h3>
+<h2><a th:href="@{/}">Back to home page</a></h2>
+<form method="post" th:action="@{/logout}">
+  <input type="submit" value="Logout">
+</form>
+</body>
+</html>

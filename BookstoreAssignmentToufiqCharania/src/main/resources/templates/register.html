@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>BookStore - Register</title>
+</head>
+<body>
+<nav>
+    <ul>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/secure}">Login</a>
+        <a th:href="@{/register}">Register</a>
+    </ul>
+</nav>
+<h1>Welcome to the BookStore!</h1>
+<h2>Register Here!</h2>
+<div id="error" class="error"></div>
+<form method="post" action="#" th:action="@{/register}" onsubmit="return verify()">
+    Username: <input type="text" name="username"><br>
+    Email: <input type="email" name="email" /><br />
+    Password: <input type="password" name="password" /><br />
+    Verify Password: <input type="password" name="verifyPassword" /><br />
+    <input type="submit" value="Register" />
+</form>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>BookStore - Edit Books</title>
+</head>
+<body>
+<nav>
+    <ul>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/secure}">Login</a>
+        <a th:href="@{/register}">Register</a>
+    </ul>
+</nav>
+<h1>BookStore</h1>
+<h2>Edit Books</h2>
+<table th:if="${bookList != null and bookList != ' '}">
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>ISBN</th>
+        <th>Price</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="s : ${bookList}">
+        <td th:text="${s.title}">Title</td>
+        <td th:text="${s.author}">Author</td>
+        <td th:text="${s.isbn}">ISBN</td>
+        <td th:text="${s.price}">Price</td>
+        <td th:text="${s.description}">Description</td>
+        <td> <a th:href="@{/updateBook/}+${s.isbn}">Edit</a></td>
+        <td> <a th:href="@{/deleteBookByIsbn/}+${s.isbn}">Delete</a></td>
+    </tr>
+</table>
+<form method="post" action="#" th:action="@{/insertBook}" th:object="${book}">
+    Title: <input type="text" name="title" th:field="*{title}" required><br>
+    Author: <input type="text" name="author" th:field="*{author}" required><br>
+    ISBN: <input type="number" name="isbn" th:field="*{isbn}" required><br>
+    Price: $<input type="number" name="price" th:field="*{price}" required><br>
+    Description: <input type="text" name="description" th:field="*{description}" required><br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

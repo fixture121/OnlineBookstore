@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org/"
+        lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>BookStore - Book Details</title>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a th:href="@{/}">Home</a></li>
+    </ul>
+</nav>
+<h1>Welcome to the BookStore</h1>
+<h2><td th:text="${book.title}"></td></h2>
+<h3><td th:text="${book.author}"></td></h3>
+<h4><td th:text="${book.description}"></td></h4>
+<img th:src="@{/images/{isbn}.jpg(isbn=${book.isbn})}" alt="Book Cover Photo" width="300" height="500"/>
+<table>
+    <tr>
+        <th>ISBN</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td th:text="${book.isbn}">ISBN</td>
+        <td th:text="${book.price}">Price</td>
+        <td> <a th:href="@{/addToCart/}+${isbn}">Add to Cart</a></td>
+    </tr>
+</table>
+<form action="@{/addToCart/}+${isbn}" method="get">
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+    <input type="submit" value="Add to Cart">
+</form>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td th:text="${book.title}">Title</td>
+        <td th:text="${book.price}">Price</td>
+    </tr>
+</table>
+</body>
+</html>

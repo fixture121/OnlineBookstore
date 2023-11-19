@@ -1,0 +1,82 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #555;
+    text-align: center;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin-right: 20px;
+    font-size: 1.5rem;
+    display: inline-block;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #888;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.book-container {
+    text-align: center;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.book-image {
+    max-width: 600px;
+    max-height: 400px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* or object-fit: contain; depending on your preference */
+}
+
+.book-image:hover {
+    cursor: default;
+}
+
+.book-details {
+    margin-top: 10px;
+}
+
+.book-details a {
+    text-decoration: none;
+    color: blue;
+}
